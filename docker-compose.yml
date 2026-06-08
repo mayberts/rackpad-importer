@@ -1,0 +1,11 @@
+services:
+  rackpad-importer:
+    build: .
+    container_name: rackpad-importer
+    ports:
+      - "5001:5000"
+    volumes:
+      - /mnt/user/appdata/rackpad/data:/data:rw
+    environment:
+      - RACKPAD_DB=/data/rackpad.db
+    restart: unless-stopped
